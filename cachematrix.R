@@ -95,13 +95,12 @@ cacheSolve <- function(x, ...) {
             xInverse <- x$getInverse()
         }, 
         error = function(err) {
-            ## matrix inverse does not exist in cache
-            x$init()
-            xInverse <- x$getInverse()
-        }, 
-        warning = function(warn) {
-            if (warn == warn_SetOnLazyInit) {
-                ## do nothing, gobble this warning
+            if (identical(err$message, error_cacheNotInitialized)) {
+                ## matrix inverse does not exist in cache
+                x$init()
+                xInverse <- x$getInverse()
+            } else {
+                stop(err)
             }
         },
         finally = {
