@@ -23,7 +23,9 @@
 ##
 ## makeCacheMatrix : Accepts an invertible matrix and caches its inverse
 ## Input           : x <- Invertible matrix
-##                   lazyInit <- logical, set true if you want to enable lazy initialization. If false, constructor/setter are computationally expensive. If true, computation load falls on first getInverse call.
+##                   lazyInit <- logical, set true if you want to enable lazy initialization. 
+##                   If false, constructor/setter are computationally expensive. 
+##                   If true, computation load falls on first getInverse call.
 ## Output          : List used to interact with cache
 ##                   Returned list's elements
 ##                   $set/$get: setter/getter functions for the matrix whose inverse is cached
